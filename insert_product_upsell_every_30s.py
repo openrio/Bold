@@ -23,11 +23,11 @@ while True:
     for i in data["reviews"]:
 
         # Get values from each row
-        v_author = i['author']
-        v_body = i['body']
+        v_author = str(i['author'])
+        v_body = str(i['body'])
         v_created_at = datetime.datetime.strptime( i['created_at'][0:19], "%Y-%m-%dT%H:%M:%S" )
-        v_shop_domain = i['shop_domain']
-        v_shop_name = i['shop_name']
+        v_shop_domain = str(i['shop_domain'])
+        v_shop_name = str(i['shop_name'])
         v_star_rating = int(i['star_rating'])
 
         # Show on screen
@@ -61,8 +61,8 @@ while True:
         # Save in Database
         #engine.execute(
         #"""
-        #INSERT INTO shopify.table (author, body, created_at, shop_domain, shop_name, star_rating)
-        #VALUES (%s, %s, %s, %s, %s, %s, %s)
+        #INSERT INTO shopify.shopify_product_upsell (author, body, created_at, shop_domain, shop_name, star_rating)
+        #VALUES (%s, %s, %s, %s, %s, %s)
         #""",
         #(v_author, v_body, v_created_at, v_shop_domain, v_shop_name, v_star_rating)
         #)
